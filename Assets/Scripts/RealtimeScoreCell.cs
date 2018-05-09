@@ -69,7 +69,7 @@ public class RealtimeScoreCell : MonoBehaviour, IComparable<RealtimeScoreCell> {
 
         teamName.interactable = totalScore.interactable = !isSave;
         
-        btnText.text = (isSave) ? "LOCK" : "SAVE";
+        btnText.text = (isSave) ? "EDIT" : "SAVE";
     }
 
 	private string GetTeamName(string name)
