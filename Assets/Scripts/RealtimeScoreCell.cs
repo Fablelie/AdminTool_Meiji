@@ -98,6 +98,11 @@ public class RealtimeScoreCell : MonoBehaviour, IComparable<RealtimeScoreCell> {
     {
         Server.Instance.UpdateGroupName(teamName.text, deviceID);
     }
+
+    public void UpdateTotalScore()
+    {
+        Server.Instance.UpdateScore(int.Parse(totalScore.text), deviceID);
+    }
     
 	public void OnClickSaveBtn()
 	{
