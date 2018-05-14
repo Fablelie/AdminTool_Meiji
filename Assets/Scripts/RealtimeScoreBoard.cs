@@ -45,7 +45,12 @@ public class RealtimeScoreBoard : MonoBehaviour {
 		GameObject obj = Instantiate(prefabCell);
 		obj.transform.SetParent(content);
 		cellList.Add(obj.GetComponent<RealtimeScoreCell>().Init(user, this));
-		height += obj.GetComponent<RectTransform>().rect.height + spacing;
+        RectTransform rt = obj.GetComponent<RectTransform>();
+		rt.sizeDelta = new Vector2(Screen.width, 350);
+		rt.localScale = new Vector3(1, 1, 1);
+		// print(Screen.width);
+		// rt.width = Screen.width;
+		height += rt.rect.height + spacing;
 
         content.sizeDelta = new Vector2(content.sizeDelta.x, height);
 	}

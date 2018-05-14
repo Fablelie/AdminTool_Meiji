@@ -42,12 +42,14 @@ public class Server : MonoBehaviour {
     private const string normal = "score";
     private const string kinect = "kinectScore";
 
+    public GameObject loading;
+
     void Awake() {
         if(instance == null) instance = this;
         // deviceID = SystemInfo.deviceUniqueIdentifier;
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://meiji-questions-game.firebaseio.com/");
         listUserData = new List<User>();
-        CheckUserAdmin();
+        // CheckUserAdmin();
         // reference.ValueChanged += HandleValueChanged;
         // print("deviceUniqueIdentifier : " + deviceID);
         // WriteNewUser("eiei", 100, 200);
@@ -58,6 +60,7 @@ public class Server : MonoBehaviour {
 
     public void CheckUserAdmin()
     {
+        loading.SetActive(true);
         reference = FirebaseDatabase.DefaultInstance.GetReference("user-admin");
         reference.GetValueAsync().ContinueWith(task =>
         {
@@ -92,6 +95,7 @@ public class Server : MonoBehaviour {
                             break;
                     }    
                 }
+                loading.SetActive(false);
                 OpenEditScore(isAdmin);
             }
         });
