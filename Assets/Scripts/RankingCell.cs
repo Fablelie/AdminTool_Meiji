@@ -12,7 +12,7 @@ public class RankingCell : MonoBehaviour {
 	public void SetupRankingCell(Sprite mascot, string name, string score)
 	{
 		this.mascot.sprite = mascot;
-		this.teamName.text = "Team : " +  name;
+		this.teamName.text = name;
 		this.score.text = score;
 	}
 }
